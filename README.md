@@ -95,7 +95,7 @@ There are 4 possible combinations for placing the piece on the above map. Our lo
 ```
 There will be less possibilities for where we can place. However, we generalize and assume that each piece is the smallest possible piece because that is an easier assumption to implement an algorithm on even though it might take more computing power to solve.
 
-Each time we cannot place we move our piece either to the right by increasing all x values by 1, or, if we cannot move to the right due to the current map size, we increaseall y values by 1 which moves the tetrimino down. If y is increased, x is pushed as far left as possible.
+Each time we cannot place we move our piece either to the right by increasing all x values by 1, or, if we cannot move to the right due to the current map size, we increase all y values by 1 which moves the tetrimino down. If y is increased, x is pushed as far left as possible.
 
 If we cannot move the current piece down or right anymore, we push it to the top right hand corner because we know we cannot place it on the current map size, so we push it to the start.
 
