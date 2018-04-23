@@ -4,7 +4,7 @@ Fillit is a project at 42 that will help familiarize you with recursion to solve
 
 ## Program Creation
 
-To create the executable `fillit` run `make`. To use fillit `./fillit target_file.
+To create the executable `fillit` run `make`. To use fillit `./fillit target_file`.
 
 ## Diagnostic Fillit
 
