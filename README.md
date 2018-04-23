@@ -97,7 +97,23 @@ There will be less possibilities for where we can place. However, we generalize 
 
 Each time we cannot place we move our piece either to the right by increasing all x values by 1, or, if we cannot move to the right due to the current map size, we increaseall y values by 1 which moves the tetrimino down. If y is increased, x is pushed as far left as possible.
 
-If we cannot move the current piece down or right anymore, we push it to the top right hand corner because we know we cannot place it on the current map size, so we push it to the start, and then increment map size so we can try all combinations again, on a bigger map.
+If we cannot move the current piece down or right anymore, we push it to the top right hand corner because we know we cannot place it on the current map size, so we push it to the start.
+
+This is the second part to our solving function:
+```
+void	start(t_tetro *piece, t_map *map)
+{
+	while (!solve(piece, map))
+	{
+		plus_map(map);
+		transform(piece, map, 1);
+	}
+	printmap(map->go, map->size);
+	freemap(map->go, map->size);
+	free(map);
+}
+```
+This function checks to see if our solve function could find a solution on the given map. If it couldn't, we increment map size so we can try all combinations again, on a bigger map. Once we are done solving, we print the map out and give back all memory we allocated using free.
 
 ### Acknowledgments
 
