@@ -6,11 +6,12 @@
 /*   By: efriedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 17:41:54 by efriedma          #+#    #+#             */
-/*   Updated: 2018/04/22 22:08:24 by efriedma         ###   ########.fr       */
+/*   Updated: 2018/05/02 21:05:35 by efriedma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
+#include <stdio.h>
 
 int		check(t_tetro *piece, char **map, t_map *map1)
 {
@@ -56,6 +57,9 @@ int		solve(t_tetro *piece, t_map *map)
 		if (check(piece, map->go, map))
 		{
 			place_tetri(piece, map);
+			printmap(map->go, map->size);
+			sleep(1);
+			printf("\n");
 			if (solve(piece->next, map))
 				return (1);
 			else
@@ -75,6 +79,7 @@ void	start(t_tetro *piece, t_map *map)
 {
 	while (!solve(piece, map))
 	{
+		printmap(map->go, map->size);
 		plus_map(map);
 		transform(piece, map, 1);
 	}
